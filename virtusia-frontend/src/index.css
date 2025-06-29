@@ -1,0 +1,283 @@
+@import "tailwindcss";
+
+/* Paleta de cores Virtusia */
+:root {
+  /* Verde musgo */
+  --moss-green-50: #f6f8f4;
+  --moss-green-100: #e9f0e3;
+  --moss-green-200: #d4e2c8;
+  --moss-green-300: #b5cfa1;
+  --moss-green-400: #92b574;
+  --moss-green-500: #739b52;
+  --moss-green-600: #5a7d3f;
+  --moss-green-700: #486235;
+  --moss-green-800: #3c4f2d;
+  --moss-green-900: #344327;
+  
+  /* Azul claro */
+  --light-blue-50: #f0f9ff;
+  --light-blue-100: #e0f2fe;
+  --light-blue-200: #bae6fd;
+  --light-blue-300: #7dd3fc;
+  --light-blue-400: #38bdf8;
+  --light-blue-500: #0ea5e9;
+  --light-blue-600: #0284c7;
+  --light-blue-700: #0369a1;
+  --light-blue-800: #075985;
+  --light-blue-900: #0c4a6e;
+  
+  /* Branco e neutros */
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+}
+
+/* Gradientes personalizados */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--moss-green-500) 0%, var(--moss-green-600) 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, var(--light-blue-400) 0%, var(--light-blue-500) 100%);
+}
+
+.gradient-soft {
+  background: linear-gradient(135deg, var(--moss-green-50) 0%, var(--light-blue-50) 100%);
+}
+
+.gradient-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.8) 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, var(--moss-green-100) 0%, var(--light-blue-100) 50%, var(--white) 100%);
+}
+
+/* Efeitos de vidro */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 249, 255, 0.7) 100%);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(115, 155, 82, 0.1);
+}
+
+/* Sombras suaves */
+.shadow-soft {
+  box-shadow: 0 4px 20px rgba(115, 155, 82, 0.1), 0 2px 8px rgba(14, 165, 233, 0.05);
+}
+
+.shadow-medium {
+  box-shadow: 0 8px 30px rgba(115, 155, 82, 0.15), 0 4px 12px rgba(14, 165, 233, 0.1);
+}
+
+.shadow-strong {
+  box-shadow: 0 12px 40px rgba(115, 155, 82, 0.2), 0 6px 16px rgba(14, 165, 233, 0.15);
+}
+
+/* Animações suaves */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(115, 155, 82, 0.15);
+}
+
+/* Botões personalizados */
+.btn-primary {
+  background: linear-gradient(135deg, var(--moss-green-500) 0%, var(--moss-green-600) 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--moss-green-600) 0%, var(--moss-green-700) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(115, 155, 82, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--light-blue-400) 0%, var(--light-blue-500) 100%);
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--light-blue-500) 0%, var(--light-blue-600) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+}
+
+/* Cards com gradiente */
+.card-gradient {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 248, 244, 0.9) 100%);
+  border: 1px solid rgba(115, 155, 82, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(115, 155, 82, 0.15);
+  border-color: rgba(115, 155, 82, 0.2);
+}
+
+/* Progress bars personalizadas */
+.progress-moss {
+  background: linear-gradient(90deg, var(--moss-green-400) 0%, var(--moss-green-500) 100%);
+}
+
+.progress-blue {
+  background: linear-gradient(90deg, var(--light-blue-400) 0%, var(--light-blue-500) 100%);
+}
+
+/* Inputs com estilo */
+.input-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(115, 155, 82, 0.2);
+  transition: all 0.3s ease;
+}
+
+.input-glass:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--moss-green-500);
+  box-shadow: 0 0 0 3px rgba(115, 155, 82, 0.1);
+}
+
+/* Navegação com gradiente */
+.nav-gradient {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(115, 155, 82, 0.1);
+}
+
+/* Ícones com cores personalizadas */
+.icon-moss {
+  color: var(--moss-green-500);
+}
+
+.icon-blue {
+  color: var(--light-blue-500);
+}
+
+.icon-gradient {
+  background: linear-gradient(135deg, var(--moss-green-500) 0%, var(--light-blue-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .glass-effect {
+    backdrop-filter: blur(8px);
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 2px 15px rgba(115, 155, 82, 0.08), 0 1px 6px rgba(14, 165, 233, 0.04);
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--moss-green-400) 0%, var(--light-blue-400) 100%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--moss-green-500) 0%, var(--light-blue-500) 100%);
+}
+
+/* Utilitários */
+.text-moss {
+  color: var(--moss-green-600);
+}
+
+.text-blue-light {
+  color: var(--light-blue-600);
+}
+
+.bg-moss {
+  background-color: var(--moss-green-500);
+}
+
+.bg-blue-light {
+  background-color: var(--light-blue-500);
+}
+
+.border-moss {
+  border-color: var(--moss-green-300);
+}
+
+.border-blue-light {
+  border-color: var(--light-blue-300);
+}
+

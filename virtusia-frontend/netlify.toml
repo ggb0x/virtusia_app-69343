@@ -1,0 +1,83 @@
+# Configuração do Netlify para Virtusia Frontend
+
+[build]
+  # Diretório onde estão os arquivos de build
+  publish = "dist"
+  
+  # Comando para fazer o build do projeto
+  command = "npm run build"
+  
+  # Diretório base do projeto (se necessário)
+  base = "."
+
+[build.environment]
+  # Versão do Node.js
+  NODE_VERSION = "20"
+  
+  # Variáveis de ambiente para build
+  VITE_APP_NAME = "Virtusia"
+  VITE_APP_VERSION = "1.0.0"
+
+# Configurações de redirecionamento para SPA (Single Page Application)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
+
+# Cache para assets estáticos
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para ícones e imagens
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Configurações de formulários (se necessário no futuro)
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+# Configurações de funções serverless (se necessário)
+[functions]
+  directory = "netlify/functions"
+
+# Configurações de desenvolvimento local
+[dev]
+  command = "npm run dev"
+  port = 5173
+  publish = "dist"
+
