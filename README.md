@@ -221,20 +221,13 @@ O projeto está totalmente configurado para deploy no Netlify. Consulte o arquiv
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-## 📞 Contato
-
-**Equipe Virtusia**
-- Website: [virtusia.app](https://virtusia.app)
-- Email: contato@virtusia.app
-- GitHub: [@virtusia](https://github.com/virtusia)
-
----
+--
 
 <div align="center">
 
 **🌟 Virtusia - Transformando vidas através da tecnologia e nutrição inteligente 🌟**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/seu-usuario/virtusia)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ggb0x/virtusia_app)
 
 </div>
 
