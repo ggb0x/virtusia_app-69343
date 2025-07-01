@@ -32,8 +32,8 @@ def create_app():
     bcrypt.init_app(app)
     jwt = JWTManager(app)
     
-    # Configurar CORS
-    CORS(app, origins="*", allow_headers=["Content-Type", "Authorization"])
+    # Configurar 
+    CORS(app, origins="https://virtusia.netlify.app", allow_headers=["Content-Type", "Authorization"])
     
     # Importar blueprints
     from src.routes.user import user_bp
