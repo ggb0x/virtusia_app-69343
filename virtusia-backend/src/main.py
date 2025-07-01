@@ -33,7 +33,7 @@ def create_app():
     jwt = JWTManager(app)
     
     # Configurar 
-    CORS(app, origins="https://virtusia.netlify.app", allow_headers=["Content-Type", "Authorization"])
+    CORS(app, resources={r"/*": {"origins": "*"}})
     
     # Importar blueprints
     from src.routes.user import user_bp
