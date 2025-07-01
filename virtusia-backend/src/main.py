@@ -22,8 +22,7 @@ def create_app():
     app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=30)
     
     # Configuração do banco de dados
-    db_path = os.path.join('/data/data/com.termux/files/usr/tmp', 'app.db')
-    database_url = os.getenv('DATABASE_URL', f"sqlite:///{db_path}")
+    database_url = os.environ.get("DATABASE_URL")
     app.config['SQLALCHEMY_DATABASE_URI'] = database_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
