@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('druxnuti_token'))
 
   // URL base da API - ajuste conforme necessário
-  const API_BASE_URL = 'http://localhost:5000/api'
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://virtusia-backend.onrender.com/api'
 
   useEffect(() => {
     // Verificar se há um token salvo e validá-lo
