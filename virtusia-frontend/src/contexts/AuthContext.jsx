@@ -93,12 +93,15 @@ export const AuthProvider = ({ children }) => {
       })
 
       const data = await response.json()
-
+      console.log('RESPOSTA DO BACK:', data)
+      
       if (response.ok) {
         const { access_token, user: newUser } = data
         localStorage.setItem('druxnuti_token', access_token)
         setToken(access_token)
         setUser(newUser)
+        console.log('TOKEN SALVO:', access_token)
+        console.log('localStorage.getItem:', localStorage.getItem('druxnuti_token'))
         return { success: true }
       } else {
         return { success: false, message: data.message || 'Erro ao criar conta' }
