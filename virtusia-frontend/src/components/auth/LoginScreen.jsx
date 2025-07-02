@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -12,19 +11,12 @@ const LoginScreen = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
-    })
-    
-  useEffect(() => {
-    if (!loading && user) {
-      navigate('/dashboard') // vai pro dashboard só quando o user estiver carregado!
-    }
-  }, [loading, user, navigate])
+  })
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   const { login } = useAuth()
-  const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -56,15 +48,9 @@ const LoginScreen = () => {
 
     const result = await login(formData.email, formData.password)
     
-    if (result.success && result.token) {
-      setTimeout(() => {
-    navigate('/dashboard')
-  }, 100) // espera o contexto processar o token
-  console.log('Token recebido:', result.token)
-  navigate('/dashboard') // ou para onde quiser levar o usuário logado
-} else {
-  setError(result.message || 'Erro ao fazer login')
-}
+    if (!result.success) {
+      setError(result.message)
+    }
     
     setLoading(false)
   }
