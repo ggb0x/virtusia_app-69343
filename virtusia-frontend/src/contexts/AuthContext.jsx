@@ -18,15 +18,15 @@ export const AuthProvider = ({ children }) => {
   // URL base da API - ajuste conforme necessário
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://virtusia-backend.onrender.com/api'
 
+  // Verificar se há um token salvo e validá-lo
   useEffect(() => {
-    // Verificar se há um token salvo e validá-lo
-    const savedToken = localStorage.getItem('druxnuti_token')
-    if (savedToken) {
-      validateToken(savedToken)
+    if (token) {
+      validateToken(token)
     } else {
       setLoading(false)
     }
-  }, [])
+  }, [token])
+
 
   const validateToken = async (token) => {
     try {
@@ -72,8 +72,11 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('druxnuti_token', access_token)
         setToken(access_token)
         setUser(userData)
-        return { success: true }
-      } else {
+        return {
+          success: true,
+          token: access_token // <-- RETORNA O TOKEN AQUI
+            } 
+        else {
         return { success: false, message: data.message || 'Erro ao fazer login' }
       }
     } catch (error) {
