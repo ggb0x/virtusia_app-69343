@@ -18,15 +18,15 @@ export const AuthProvider = ({ children }) => {
   // URL base da API - ajuste conforme necessário
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://virtusia-backend.onrender.com/api'
 
-  // Verificar se há um token salvo e validá-lo
   useEffect(() => {
-    if (token) {
-      validateToken(token)
+    // Verificar se há um token salvo e validá-lo
+    const savedToken = localStorage.getItem('druxnuti_token')
+    if (savedToken) {
+      validateToken(savedToken)
     } else {
       setLoading(false)
     }
-  }, [token])
-
+  }, [])
 
   const validateToken = async (token) => {
     try {
@@ -72,11 +72,8 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('druxnuti_token', access_token)
         setToken(access_token)
         setUser(userData)
-        return {
-          success: true,
-          token: access_token // <-- RETORNA O TOKEN AQUI
-            } 
-        else {
+        return { success: true }
+      } else {
         return { success: false, message: data.message || 'Erro ao fazer login' }
       }
     } catch (error) {
@@ -96,16 +93,13 @@ export const AuthProvider = ({ children }) => {
       })
 
       const data = await response.json()
-      console.log('RESPOSTA DO BACK:', data)
-      
+
       if (response.ok) {
         const { access_token, user: newUser } = data
         localStorage.setItem('druxnuti_token', access_token)
         setToken(access_token)
         setUser(newUser)
-        console.log('TOKEN SALVO:', access_token)
-        console.log('localStorage.getItem:', localStorage.getItem('druxnuti_token'))
-        return { success: true }
+        return { success: true, token: access_token }
       } else {
         return { success: false, message: data.message || 'Erro ao criar conta' }
       }
@@ -196,4 +190,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   )
 }
-
