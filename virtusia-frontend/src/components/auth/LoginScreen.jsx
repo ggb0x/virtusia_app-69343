@@ -19,7 +19,6 @@ const LoginScreen = () => {
       navigate('/dashboard') // vai pro dashboard só quando o user estiver carregado!
     }
   }, [loading, user, navigate])
-  })
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
