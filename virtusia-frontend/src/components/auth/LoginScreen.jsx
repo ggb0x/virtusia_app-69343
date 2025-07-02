@@ -51,6 +51,9 @@ const LoginScreen = () => {
     const result = await login(formData.email, formData.password)
     
     if (result.success && result.token) {
+      setTimeout(() => {
+    navigate('/dashboard')
+  }, 100) // espera o contexto processar o token
   console.log('Token recebido:', result.token)
   navigate('/dashboard') // ou para onde quiser levar o usuário logado
 } else {
