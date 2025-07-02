@@ -12,7 +12,9 @@ const LoginScreen = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
-    useEffect(() => {
+    })
+    
+  useEffect(() => {
     if (!loading && user) {
       navigate('/dashboard') // vai pro dashboard só quando o user estiver carregado!
     }
